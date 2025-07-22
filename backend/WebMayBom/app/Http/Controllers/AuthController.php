@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,9 +17,7 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            // 'phone' => 'nullable',
-            // 'address' => 'nullable',
-            'role' => 'in:admin,user'
+            'role' => 'sometimes|in:admin,user'
         ]);
 
         if ($validator->fails()) {
@@ -28,24 +28,29 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            // 'phone' => $request->phone,
-            // 'address' => $request->address,
-            'role' => $request->role ?? 'user',
+            'role' => $request->role ?? 'user'
         ]);
 
         $token = JWTAuth::fromUser($user);
         return response()->json(compact('user', 'token'), 201);
     }
 
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
-        if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Sai tài khoản hoặc mật khẩu'], 401);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'Email hoặc mật khẩu sai'], 401);
         }
 
-        return response()->json(['token' => $token]);
+        $user = auth()->user();
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'user' => $user,
+        ]);
     }
 
     public function me()

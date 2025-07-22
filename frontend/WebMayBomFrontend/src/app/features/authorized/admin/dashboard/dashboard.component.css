@@ -1,0 +1,135 @@
+/* Tổng thể dashboard */
+.dashboard {
+  padding: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Tiêu đề chính */
+.dashboard__title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Khối thêm người dùng */
+.add-user-form {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.add-user-form__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.add-user-form__input,
+.add-user-form__select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.add-user-form__input:focus,
+.add-user-form__select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.add-user-form__button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-user-form__button:hover {
+  background-color: #2980b9;
+}
+
+/* Danh sách người dùng */
+.user-list {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.user-list__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.user-list__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-list__thead {
+  background-color: #ecf0f1;
+}
+
+.user-list__thead-cell,
+.user-list__cell {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-list__row:hover {
+  background-color: #f9fbfd;
+}
+
+.user-list__role-select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+/* Nút hành động */
+.user-list__edit-button,
+.user-list__delete-button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-list__edit-button {
+  background-color: #f1c40f;
+  color: white;
+}
+
+.user-list__edit-button:hover {
+  background-color: #d4ac0d;
+}
+
+.user-list__delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.user-list__delete-button:hover {
+  background-color: #c0392b;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="illustration">
+        <img src="assets/img/anhlogin.jpg" alt="Game Character" />
+      </div>
+      <div class="box">
+        <div class="logo">🐾</div>
+        <h2>Welcome back</h2>
+        <h3>Sign up</h3>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register__form">
+          <input
+            formControlName="name"
+            placeholder="Tên"
+            class="register__input"
+          />
+          <input
+            formControlName="email"
+            placeholder="Email"
+            class="register__input"
+          />
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Mật khẩu"
+            class="register__input"
+          />
+
+          <div class="options">
+            <label><input type="checkbox" name="remember" /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit">Register</button>
+
+          <div class="social-login">
+            <button class="google">G</button>
+            <button class="facebook">f</button>
+            <button class="discord">💬</button>
+            <button class="apple"></button>
+          </div>
+
+          <p class="signup">
+            Already have an account?
+            <a routerLink="/authentication/login" class="register__login-link">
+              Sign in
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

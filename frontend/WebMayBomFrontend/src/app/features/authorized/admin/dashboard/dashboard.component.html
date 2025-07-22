@@ -1,0 +1,84 @@
+<div class="dashboard">
+  <h2 class="dashboard__title">Quản lý người dùng</h2>
+
+  <div class="dashboard__add-user add-user-form">
+    <h3 class="add-user-form__title">Thêm người dùng mới</h3>
+
+    <input
+      type="text"
+      [(ngModel)]="newUser.name"
+      placeholder="Tên người dùng"
+      class="add-user-form__input"
+    />
+    <input
+      type="email"
+      [(ngModel)]="newUser.email"
+      placeholder="Email"
+      class="add-user-form__input"
+    />
+    <input
+      type="password"
+      [(ngModel)]="newUser.password"
+      placeholder="Mật khẩu"
+      class="add-user-form__input"
+    />
+
+    <!-- Combo box chọn vai trò -->
+    <select [(ngModel)]="newUser.role_id" class="add-user-form__select">
+      <option [ngValue]="null" disabled selected>-- Chọn vai trò --</option>
+      <option *ngFor="let role of roles" [ngValue]="role.value">
+        {{ role.label }}
+      </option>
+    </select>
+
+    <button (click)="addUser()" class="add-user-form__button">Thêm</button>
+  </div>
+
+  <div class="dashboard__user-list user-list">
+    <h3 class="user-list__title">Danh sách người dùng</h3>
+    <table class="user-list__table">
+      <thead class="user-list__thead">
+        <tr class="user-list__thead-row">
+          <th class="user-list__thead-cell">ID</th>
+          <th class="user-list__thead-cell">Tên</th>
+          <th class="user-list__thead-cell">Email</th>
+          <th class="user-list__thead-cell">Vai trò</th>
+          <th class="user-list__thead-cell">Thay đổi vai trò</th>
+          <th class="user-list__thead-cell">Hành động</th>
+        </tr>
+      </thead>
+      <tbody class="user-list__tbody">
+        <tr *ngFor="let user of users" class="user-list__row">
+          <td class="user-list__cell">{{ user.id }}</td>
+          <td class="user-list__cell">{{ user.name }}</td>
+          <td class="user-list__cell">{{ user.email }}</td>
+          <td class="user-list__cell">
+            {{ user.role_id === 1 ? "admin" : "user" }}
+          </td>
+          <td class="user-list__cell">
+            <select
+              class="user-list__role-select"
+              [value]="user.role_id"
+              (change)="changeRole(user, $event)"
+            >
+              <option *ngFor="let role of roles" [value]="role.value">
+                {{ role.label }}
+              </option>
+            </select>
+          </td>
+          <td class="user-list__cell">
+            <button (click)="editUser(user)" class="user-list__edit-button">
+              Sửa
+            </button>
+            <button
+              (click)="deleteUser(user?.id)"
+              class="user-list__delete-button"
+            >
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

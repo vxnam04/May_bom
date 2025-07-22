@@ -28,20 +28,12 @@ export class AuthservicesService {
       }
     );
   }
-
-  saveToken(res: any): void {
-    if (res.access_token) {
+  saveToken(res: any) {
+    if (res && res.access_token) {
       localStorage.setItem('access_token', res.access_token);
+      localStorage.setItem('user', JSON.stringify(res.user));
     } else {
       console.warn('⚠️ Token không tồn tại trong response!');
-    }
-
-    if (res.user) {
-      localStorage.setItem('user_email', res.user.email);
-      localStorage.setItem(
-        'user_role',
-        res.user.role === 'admin' ? 'admin' : 'user'
-      );
     }
   }
 

@@ -25,10 +25,11 @@ export class LoginComponent {
   onSubmit() {
     this.auth.login(this.form.value).subscribe({
       next: (res: any) => {
-        console.log(res.access_token);
+        console.log('Toàn bộ response:', res);
+
         this.auth.saveToken(res);
 
-        const role = res.user.role_id;
+        const role = res.user.role;
         console.log('Login thành công với vai trò:', role);
 
         if (role === 'admin') {

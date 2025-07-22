@@ -40,7 +40,7 @@ export class AuthservicesService {
       localStorage.setItem('user_email', res.user.email);
       localStorage.setItem(
         'user_role',
-        res.user.role_id == 1 ? 'admin' : 'user'
+        res.user.role === 'admin' ? 'admin' : 'user'
       );
     }
   }

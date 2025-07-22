@@ -37,6 +37,7 @@ registerLocaleData(vi);
     NzButtonModule,
     NzLayoutModule,
   ],
+
   providers: [
     { provide: NZ_MODAL_DATA, useValue: {} },
     { provide: NZ_I18N, useValue: vi_VN },

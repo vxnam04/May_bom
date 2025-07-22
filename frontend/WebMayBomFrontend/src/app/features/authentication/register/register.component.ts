@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthservicesService } from '../../../data-access/services/authservices.service';
 
@@ -17,22 +17,34 @@ export class RegisterComponent {
     private router: Router
   ) {
     this.form = this.fb.group({
-      name: [''],
-      email: [''],
-      password: [''],
-      role: ['user'], // thêm dòng này
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      role: ['user'],
     });
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      console.log('❌ Form không hợp lệ:', this.form.value);
+      alert('Vui lòng điền đầy đủ thông tin hợp lệ!');
+      return;
+    }
+
+    console.log('✅ Dữ liệu gửi đi:', this.form.value); // log để kiểm tra
+
     this.auth.register(this.form.value).subscribe({
       next: () => {
-        alert('Đăng ký thành công, hãy đăng nhập');
-        console.log('thanh cong');
         this.router.navigate(['/authentication/login']);
       },
-      error: () => {
-        alert('Lỗi đăng ký');
+      error: (err) => {
+        console.error('❌ Lỗi đăng ký:', err);
+        // Có thể in rõ hơn lỗi từ Laravel:
+        if (err.status === 400) {
+          alert('Dữ liệu không hợp lệ: ' + JSON.stringify(err.error));
+        } else {
+          alert('Lỗi máy chủ');
+        }
       },
     });
   }

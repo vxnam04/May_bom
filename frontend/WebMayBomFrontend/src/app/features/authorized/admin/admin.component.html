@@ -1,1 +1,92 @@
-<router-outlet></router-outlet>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="layout-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" [class.active]="sidebarActive">
+        <div class="logo-details">
+          <i class="bx bxl-c-plus-plus"></i>
+          <span class="logo_name">NABI</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a routerLink="./dashboard" routerLinkActive="active-link">
+              <i class="bx bx-grid-alt"></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="./product" routerLinkActive="active-link">
+              <i class="bx bx-box"></i>
+              <span class="links_name">Product</span>
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/authorized/admin/user"
+              routerLinkActive="active-link"
+            >
+              <i class="bx bx-list-ul"></i>
+              <span class="links_name">User</span>
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/authorized/admin/category"
+              routerLinkActive="active-link"
+            >
+              <i class="bx bx-pie-chart-alt-2"></i>
+              <span class="links_name">Category</span>
+            </a>
+          </li>
+          <li class="log_out">
+            <a (click)="logout()">
+              <i class="bx bx-log-out"></i>
+              <span class="links_name">Log out</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Section -->
+      <section class="home-section">
+        <nav class="top-nav">
+          <div class="sidebar-button" (click)="toggleSidebar()">
+            <i class="bx bx-menu" [class.bx-menu-alt-right]="sidebarActive"></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+          <div class="profile-details" (click)="toggleDropdown()">
+            <img src="assets/img/avatar.jpg" alt="Avatar" class="avatar" />
+            <span class="admin-name">ADMIN</span>
+            <i class="bx bx-chevron-down arrow-icon"></i>
+
+            <div
+              class="dropdown-menu"
+              [style.display]="dropdownVisible ? 'block' : 'none'"
+            >
+              <a routerLink="/authorized/admin/profile"
+                ><i class="bx bx-user"></i>Trang cá nhân</a
+              >
+              <a routerLink="/authorized/admin/settings"
+                ><i class="bx bx-cog"></i>Cài đặt</a
+              >
+              <a routerLink="/authorized/admin/accounts"
+                ><i class="bx bx-shield-quarter"></i>Quản lý tài khoản</a
+              >
+              <hr />
+              <a (click)="logout()"><i class="bx bx-log-out"></i>Đăng xuất</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Nội dung trang -->
+        <div class="box"><router-outlet></router-outlet></div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,84 +1,94 @@
-<div class="dashboard">
-  <h2 class="dashboard__title">Quản lý người dùng</h2>
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Admin</title>
+  </head>
 
-  <div class="dashboard__add-user add-user-form">
-    <h3 class="add-user-form__title">Thêm người dùng mới</h3>
+  <body>
+    <div class="dashboard-container">
+      <h1>📊 Bảng điều khiển</h1>
 
-    <input
-      type="text"
-      [(ngModel)]="newUser.name"
-      placeholder="Tên người dùng"
-      class="add-user-form__input"
-    />
-    <input
-      type="email"
-      [(ngModel)]="newUser.email"
-      placeholder="Email"
-      class="add-user-form__input"
-    />
-    <input
-      type="password"
-      [(ngModel)]="newUser.password"
-      placeholder="Mật khẩu"
-      class="add-user-form__input"
-    />
+      <div class="stats-cards">
+        <a href="admin.php?controller=user&action=getuser" class="card">
+          <i class="fas fa-users"></i>
 
-    <!-- Combo box chọn vai trò -->
-    <select [(ngModel)]="newUser.role_id" class="add-user-form__select">
-      <option [ngValue]="null" disabled selected>-- Chọn vai trò --</option>
-      <option *ngFor="let role of roles" [ngValue]="role.value">
-        {{ role.label }}
-      </option>
-    </select>
+          <p>Người dùng</p>
+        </a>
 
-    <button (click)="addUser()" class="add-user-form__button">Thêm</button>
-  </div>
+        <a href="admin.php?controller=product&action=index" class="card">
+          <i class="fas fa-box"></i>
 
-  <div class="dashboard__user-list user-list">
-    <h3 class="user-list__title">Danh sách người dùng</h3>
-    <table class="user-list__table">
-      <thead class="user-list__thead">
-        <tr class="user-list__thead-row">
-          <th class="user-list__thead-cell">ID</th>
-          <th class="user-list__thead-cell">Tên</th>
-          <th class="user-list__thead-cell">Email</th>
-          <th class="user-list__thead-cell">Vai trò</th>
-          <th class="user-list__thead-cell">Thay đổi vai trò</th>
-          <th class="user-list__thead-cell">Hành động</th>
-        </tr>
-      </thead>
-      <tbody class="user-list__tbody">
-        <tr *ngFor="let user of users" class="user-list__row">
-          <td class="user-list__cell">{{ user.id }}</td>
-          <td class="user-list__cell">{{ user.name }}</td>
-          <td class="user-list__cell">{{ user.email }}</td>
-          <td class="user-list__cell">
-            {{ user.role_id === 1 ? "admin" : "user" }}
-          </td>
-          <td class="user-list__cell">
-            <select
-              class="user-list__role-select"
-              [value]="user.role_id"
-              (change)="changeRole(user, $event)"
-            >
-              <option *ngFor="let role of roles" [value]="role.value">
-                {{ role.label }}
-              </option>
-            </select>
-          </td>
-          <td class="user-list__cell">
-            <button (click)="editUser(user)" class="user-list__edit-button">
-              Sửa
-            </button>
-            <button
-              (click)="deleteUser(user?.id)"
-              class="user-list__delete-button"
-            >
-              Xóa
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+          <p>Sản phẩm</p>
+        </a>
+
+        <a href="admin.php?controller=category&action=index" class="card">
+          <i class="fas fa-list"></i>
+
+          <p>Danh mục</p>
+        </a>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-box">
+          <h3>Biểu đồ người dùng</h3>
+          <canvas id="userChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Thống kê sản phẩm</h3>
+          <canvas id="productChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Chart 1: Users over months
+      const userChart = new Chart(document.getElementById("userChart"), {
+        type: "bar",
+        data: {
+          labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5"],
+          datasets: [
+            {
+              label: "Người dùng mới",
+              data: [30, 45, 60, 40, 80],
+              backgroundColor: "#FF7043",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      // Chart 2: Product categories
+      const productChart = new Chart(document.getElementById("productChart"), {
+        type: "doughnut",
+        data: {
+          labels: ["Túi xách", "Ví", "Balo", "Khác"],
+          datasets: [
+            {
+              label: "Sản phẩm",
+              data: [150, 90, 70, 40],
+              backgroundColor: ["#42A5F5", "#66BB6A", "#FFA726", "#AB47BC"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

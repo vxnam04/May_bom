@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,16 +21,24 @@ export class AuthservicesService {
   }
 
   logout() {
-    return this.http.post(
-      `${this.baseUrl}/logout`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${this.getToken()}`,
-        },
-      }
-    );
+    return this.http
+      .post(
+        `${this.baseUrl}/logout`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${this.getToken()}`,
+          },
+        }
+      )
+      .pipe(
+        catchError((error) => {
+          console.error('Logout error', error);
+          return throwError(() => error);
+        })
+      );
   }
+
   saveToken(res: any) {
     if (res && res.access_token) {
       localStorage.setItem('access_token', res.access_token);
@@ -37,8 +48,18 @@ export class AuthservicesService {
     }
   }
 
-  getToken() {
+  getToken(): string {
     return localStorage.getItem('access_token') || '';
+  }
+
+  getUser() {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  getUserRole(): string {
+    const user = this.getUser();
+    return user?.role || '';
   }
 
   isLoggedIn(): boolean {
@@ -47,7 +68,8 @@ export class AuthservicesService {
 
   logoutAndRedirect() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
     localStorage.removeItem('user_role');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/authentication/login']);
   }
 }

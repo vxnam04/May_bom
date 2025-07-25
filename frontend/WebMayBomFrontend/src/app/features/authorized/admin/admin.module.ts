@@ -9,9 +9,10 @@ import { NzTreeModule } from 'ng-zorro-antd/tree';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [DashboardComponent, ProductComponent],
+  declarations: [DashboardComponent, ProductComponent, UserComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

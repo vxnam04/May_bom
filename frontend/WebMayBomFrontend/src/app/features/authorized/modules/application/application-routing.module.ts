@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { ApplicationComponent } from './application.component';
 import { RecentComponent } from './recent/recent.component';
+import { DevicesComponent } from './devices/devices.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'list', pathMatch: 'full' }, // 👈 sửa lại redirect
       { path: 'list', component: ListComponent },
       { path: 'recent', component: RecentComponent },
+      { path: 'devices', component: DevicesComponent },
+      { path: 'support', component: SupportComponent },
     ],
   },
 ];

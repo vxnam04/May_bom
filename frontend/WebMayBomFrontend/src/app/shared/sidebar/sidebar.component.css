@@ -10,28 +10,33 @@
   z-index: 100;
   cursor: pointer;
 }
-
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 /* Khi sidebar bị thu gọn */
 .sidebar.active {
   width: 90px;
 }
 
 /* Logo + tên thương hiệu */
-.sidebar .logo-details {
+.sidebar .logo-details a {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60px;
 }
 
-.sidebar .logo-details i {
+.sidebar .logo-details a i {
   font-size: 28px;
   color: #fff;
   min-width: 60px;
   text-align: center;
 }
 
-.sidebar .logo-details .logo_name {
+.sidebar .logo-details a .logo_name {
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -46,7 +51,7 @@
   pointer-events: none;
 } */
 
-.sidebar.active .logo-details .chung {
+.sidebar.active .logo-details a .logo {
   margin: 0px;
   opacity: 0;
   display: none;
@@ -100,4 +105,10 @@
 .sidebar .nav-links li a.active-link {
   background: #1d1b31;
   border-left: 4px solid #fff;
+}
+.logo-details a {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  text-decoration: none;
 }

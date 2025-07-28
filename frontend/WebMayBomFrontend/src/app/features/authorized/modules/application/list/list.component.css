@@ -97,23 +97,36 @@ app-topnav {
 ========================== */
 .room-tabs {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .room-tab,
 .room-tabs div {
-  background-color: #dfe4ea;
+  background-color: #dbdbdb;
   padding: 8px 14px;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
+.room-tabs div:hover {
+  background: linear-gradient(135deg, #d9f99d, #9fffe0, #54d6bb);
+}
 .room-tabs div:hover {
   background-color: #ced6e0;
 }
-
+.room {
+  display: flex;
+  justify-content: space-between;
+}
+.adddevices {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #d9f99d, #9fffe0, #54d6bb);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: none;
+}
 /* =======================
    CARD
 ========================== */
@@ -268,4 +281,7 @@ app-sidebar {
 
 .layout-container.sidebar-collapsed .main-content {
   margin-left: 80px; /* trùng với width sidebar khi collapsed */
+}
+.box1 {
+  display: flex;
 }

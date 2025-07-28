@@ -1,8 +1,10 @@
 <!-- Sidebar -->
 <aside class="sidebar" [class.active]="!sidebarActive">
   <div class="logo-details">
-    <i class="chung bx bxl-c-plus-plus"></i>
-    <span class="logo_name">NABI</span>
+    <a routerLink="/authorized/application/list" routerLinkActive="active-link">
+      <img src="/assets/img/logo.jpg" alt="logo" class="logo" />
+      <span class="logo_name">NABI</span>
+    </a>
   </div>
   <ul class="nav-links">
     <li>
@@ -16,6 +18,15 @@
     </li>
     <li>
       <a
+        routerLink="/authorized/application/devices"
+        routerLinkActive="active-link"
+      >
+        <i class="bx bx-pie-chart-alt-2"></i>
+        <span class="links_name">Devices</span>
+      </a>
+    </li>
+    <li>
+      <a
         routerLink="/authorized/application/recent"
         routerLinkActive="active-link"
       >
@@ -24,17 +35,15 @@
       </a>
     </li>
     <li>
-      <a routerLink="./user" routerLinkActive="active-link">
-        <i class="bx bx-list-ul"></i>
-        <span class="links_name">User</span>
+      <a
+        routerLink="/authorized/application/support"
+        routerLinkActive="active-link"
+      >
+        <i class="bx bx-help-circle"></i>
+        <span class="links_name">Support</span>
       </a>
     </li>
-    <li>
-      <a routerLink="/authorized/admin/category" routerLinkActive="active-link">
-        <i class="bx bx-pie-chart-alt-2"></i>
-        <span class="links_name">Category</span>
-      </a>
-    </li>
+
     <li class="log_out">
       <a (click)="logout()">
         <i class="bx bx-log-out"></i>

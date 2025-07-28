@@ -11,30 +11,45 @@
   </button>
 
   <!-- Tiêu đề Dashboard -->
-  <span class="dashboard-title">Dashboard</span>
+  <div class="navbar">
+    <div class="navbar-center">
+      <div class="search-box">
+        <input type="text" placeholder="Search type of keywords" />
+        <i class="bx bx-search"></i>
+      </div>
+    </div>
+    <!-- Profile dropdown bên phải -->
+    <div class="help-icon">
+      <i class="bx bx-help-circle"></i>
+    </div>
+    <div class="notification-icon">
+      <i class="bx bx-bell"></i>
+      <span class="badge">3</span>
+      <!-- Có thể thêm số lượng thông báo -->
+    </div>
 
-  <!-- Profile dropdown bên phải -->
-  <div class="profile-section" (click)="toggleDropdown()">
-    <img
-      src="../../../../assets/img/anhlogin.jpg"
-      alt="Avatar"
-      class="avatar"
-    />
-    <span class="admin-name">ADMIN</span>
-    <i class="bx bx-chevron-down arrow-icon"></i>
+    <div class="profile-section" (click)="toggleDropdown()">
+      <img
+        src="../../../../assets/img/anhlogin.jpg"
+        alt="Avatar"
+        class="avatar"
+      />
+      <span class="admin-name">ADMIN</span>
+      <i class="bx bx-chevron-down arrow-icon"></i>
 
-    <div class="dropdown-menu" [class.show]="dropdownVisible">
-      <a routerLink="/authorized/admin/profile">
-        <i class="bx bx-user"></i> Trang cá nhân
-      </a>
-      <a routerLink="/authorized/admin/settings">
-        <i class="bx bx-cog"></i> Cài đặt
-      </a>
-      <a routerLink="/authorized/admin/accounts">
-        <i class="bx bx-shield-quarter"></i> Quản lý tài khoản
-      </a>
-      <hr />
-      <a (click)="logout()"><i class="bx bx-log-out"></i> Đăng xuất</a>
+      <div class="dropdown-menu" [class.show]="dropdownVisible">
+        <a routerLink="/authorized/admin/profile">
+          <i class="bx bx-user"></i> Trang cá nhân
+        </a>
+        <a routerLink="/authorized/admin/settings">
+          <i class="bx bx-cog"></i> Cài đặt
+        </a>
+        <a routerLink="/authorized/admin/accounts">
+          <i class="bx bx-shield-quarter"></i> Quản lý tài khoản
+        </a>
+        <hr />
+        <a (click)="logout()"><i class="bx bx-log-out"></i> Đăng xuất</a>
+      </div>
     </div>
   </div>
 </nav>

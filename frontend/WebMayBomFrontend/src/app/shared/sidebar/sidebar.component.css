@@ -12,7 +12,7 @@
 
 /* Khi sidebar bị thu gọn */
 .sidebar.active {
-  width: 78px;
+  width: 90px;
 }
 
 /* Logo + tên thương hiệu */
@@ -40,8 +40,15 @@
 }
 
 /* Khi sidebar bị thu gọn thì ẩn logo_name */
-.sidebar.active .logo-details .logo_name {
+/* .sidebar.active .logo-details .logo_name {
   opacity: 0;
+  pointer-events: none;
+} */
+
+.sidebar.active .logo-details .chung {
+  margin: 0px;
+  opacity: 0;
+  display: none;
   pointer-events: none;
 }
 

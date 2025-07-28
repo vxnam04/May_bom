@@ -7,6 +7,9 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ApplicationComponent } from './modules/application/application.component';
 
 @NgModule({
   imports: [
@@ -16,6 +19,8 @@ import { AdminComponent } from './admin/admin.component';
     NzEmptyModule,
     NzTreeModule,
     RouterModule,
+    FormsModule,
+    SharedModule,
   ],
   declarations: [AuthorizedComponent, AdminComponent],
 })

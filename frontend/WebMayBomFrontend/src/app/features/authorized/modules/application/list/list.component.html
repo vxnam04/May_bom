@@ -1,128 +1,84 @@
-<div class="layout-container" [class.sidebar-collapsed]="!sidebarActive">
-  <!-- Sidebar -->
-  <app-sidebar></app-sidebar>
+<div class="main">
+  <!-- Các nội dung con ở đây -->
+  <div class="box">
+    <div class="main">
+      <div class="topbar">
+        <h2>Dashboard</h2>
+        <input
+          class="search"
+          type="text"
+          placeholder="Search type of keywords"
+        />
+      </div>
 
-  <!-- Main Section -->
-  <div class="main-content">
-    <!-- Top Navigation -->
-    <app-topnav></app-topnav>
+      <div class="room-tabs">
+        <div class="room-tab">Living Room</div>
+        <div>Kitchen Room</div>
+        <div>Bed Room</div>
+        <div>Movie Room</div>
+        <div>Game Room</div>
+      </div>
 
-    <!-- Page Content -->
-    <div class="page-content">
-      <div class="main">
-        <!-- Các nội dung con ở đây -->
-        <div class="box">
-          <div class="main">
-            <div class="topbar">
-              <h2>Dashboard</h2>
-              <input
-                class="search"
-                type="text"
-                placeholder="Search type of keywords"
-              />
-            </div>
+      <div class="card">
+        <h3>Air Conditioner</h3>
+        <div class="temperature-control">
+          <strong>24°C</strong>
+          <input type="range" min="16" max="32" value="24" />
+        </div>
+      </div>
 
-            <div class="room-tabs">
-              <div class="room-tab">Living Room</div>
-              <div>Kitchen Room</div>
-              <div>Bed Room</div>
-              <div>Movie Room</div>
-              <div>Game Room</div>
-            </div>
-
-            <div class="card">
-              <h3>Air Conditioner</h3>
-              <div class="temperature-control">
-                <strong>24°C</strong>
-                <input type="range" min="16" max="32" value="24" />
-              </div>
-            </div>
-
-            <div class="card">
-              <div style="display: flex; justify-content: space-between">
-                <div>
-                  <h4>Total spend</h4>
-                  <p>35.02Kwh</p>
-                </div>
-                <div>
-                  <h4>Total hours</h4>
-                  <p>32h</p>
-                </div>
-              </div>
-              <div class="chart">
-                <div class="bar" style="height: 40px"></div>
-                <div class="bar" style="height: 80px"></div>
-                <div class="bar" style="height: 60px"></div>
-                <div class="bar active" style="height: 120px"></div>
-                <div class="bar" style="height: 70px"></div>
-                <div class="bar" style="height: 90px"></div>
-                <div class="bar" style="height: 100px"></div>
-              </div>
-            </div>
-
-            <div class="devices">
-              <div class="device">Smart TV</div>
-              <div class="device">Speaker</div>
-              <div class="device">Router</div>
-              <div class="device">Wifi</div>
-              <div class="device">Heater</div>
-              <div class="device">Socket</div>
-            </div>
-
-            <div class="lights">
-              <h4>Light</h4>
-              <div class="light-item">
-                <span>💡 Light 1</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="60"
-                  class="slider"
-                />
-              </div>
-              <div class="light-item">
-                <span>💡 Light 2</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="80"
-                  class="slider"
-                />
-              </div>
-              <div class="light-item">
-                <span>💡 Light 3</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="45"
-                  class="slider"
-                />
-              </div>
-              <div class="light-item">
-                <span>💡 Light 4</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="60"
-                  class="slider"
-                />
-              </div>
-              <div class="light-item">
-                <span>💡 Light 5</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="60"
-                  class="slider"
-                />
-              </div>
-            </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between">
+          <div>
+            <h4>Total spend</h4>
+            <p>35.02Kwh</p>
           </div>
+          <div>
+            <h4>Total hours</h4>
+            <p>32h</p>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="bar" style="height: 40px"></div>
+          <div class="bar" style="height: 80px"></div>
+          <div class="bar" style="height: 60px"></div>
+          <div class="bar active" style="height: 120px"></div>
+          <div class="bar" style="height: 70px"></div>
+          <div class="bar" style="height: 90px"></div>
+          <div class="bar" style="height: 100px"></div>
+        </div>
+      </div>
+
+      <div class="devices">
+        <div class="device">Smart TV</div>
+        <div class="device">Speaker</div>
+        <div class="device">Router</div>
+        <div class="device">Wifi</div>
+        <div class="device">Heater</div>
+        <div class="device">Socket</div>
+      </div>
+
+      <div class="lights">
+        <h4>Light</h4>
+        <div class="light-item">
+          <span>💡 Light 1</span>
+          <input type="range" min="0" max="100" value="60" class="slider" />
+        </div>
+        <div class="light-item">
+          <span>💡 Light 2</span>
+          <input type="range" min="0" max="100" value="80" class="slider" />
+        </div>
+        <div class="light-item">
+          <span>💡 Light 3</span>
+          <input type="range" min="0" max="100" value="45" class="slider" />
+        </div>
+        <div class="light-item">
+          <span>💡 Light 4</span>
+          <input type="range" min="0" max="100" value="60" class="slider" />
+        </div>
+        <div class="light-item">
+          <span>💡 Light 5</span>
+          <input type="range" min="0" max="100" value="60" class="slider" />
         </div>
       </div>
     </div>

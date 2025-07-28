@@ -1,0 +1,39 @@
+<!-- Sidebar -->
+<aside class="sidebar" [class.active]="!sidebarActive">
+  <div class="logo-details">
+    <i class="bx bxl-c-plus-plus"></i>
+    <span class="logo_name">NABI</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a routerLink="./dashboard" routerLinkActive="active-link">
+        <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="./product" routerLinkActive="active-link">
+        <i class="bx bx-box"></i>
+        <span class="links_name">Product</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="./user" routerLinkActive="active-link">
+        <i class="bx bx-list-ul"></i>
+        <span class="links_name">User</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/authorized/admin/category" routerLinkActive="active-link">
+        <i class="bx bx-pie-chart-alt-2"></i>
+        <span class="links_name">Category</span>
+      </a>
+    </li>
+    <li class="log_out">
+      <a (click)="logout()">
+        <i class="bx bx-log-out"></i>
+        <span class="links_name">Log out</span>
+      </a>
+    </li>
+  </ul>
+</aside>

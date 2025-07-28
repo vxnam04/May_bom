@@ -1,0 +1,40 @@
+<nav class="top-nav">
+  <!-- Nút toggle sidebar bên trái -->
+  <button class="sidebar-toggle-btn" (click)="toggleSidebar()">
+    <i
+      class="bx"
+      [ngClass]="{
+        'bx-menu': !sidebarActive,
+        'bx-menu-alt-right': sidebarActive
+      }"
+    ></i>
+  </button>
+
+  <!-- Tiêu đề Dashboard -->
+  <span class="dashboard-title">Dashboard</span>
+
+  <!-- Profile dropdown bên phải -->
+  <div class="profile-section" (click)="toggleDropdown()">
+    <img
+      src="../../../../assets/img/anhlogin.jpg"
+      alt="Avatar"
+      class="avatar"
+    />
+    <span class="admin-name">ADMIN</span>
+    <i class="bx bx-chevron-down arrow-icon"></i>
+
+    <div class="dropdown-menu" [class.show]="dropdownVisible">
+      <a routerLink="/authorized/admin/profile">
+        <i class="bx bx-user"></i> Trang cá nhân
+      </a>
+      <a routerLink="/authorized/admin/settings">
+        <i class="bx bx-cog"></i> Cài đặt
+      </a>
+      <a routerLink="/authorized/admin/accounts">
+        <i class="bx bx-shield-quarter"></i> Quản lý tài khoản
+      </a>
+      <hr />
+      <a (click)="logout()"><i class="bx bx-log-out"></i> Đăng xuất</a>
+    </div>
+  </div>
+</nav>

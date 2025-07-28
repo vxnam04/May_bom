@@ -1,0 +1,89 @@
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #2f3542;
+}
+
+/* Tiêu đề dashboard */
+.dashboard-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2f3542;
+  margin-left: 15px;
+}
+
+/* Phần dropdown avatar */
+.profile-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-name {
+  font-weight: 500;
+  color: #2f3542;
+}
+
+.arrow-icon {
+  font-size: 18px;
+  color: #2f3542;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  border-radius: 6px;
+}
+
+.dropdown-menu a {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2f3542;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f2f6;
+}
+
+/* Toggle show menu */
+.dropdown-menu.show {
+  display: flex;
+}

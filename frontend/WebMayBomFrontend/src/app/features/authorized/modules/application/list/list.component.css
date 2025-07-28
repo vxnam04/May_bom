@@ -1,0 +1,272 @@
+/* =======================
+   RESET & FONT
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* =======================
+   LAYOUT CONTAINER
+========================== */
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* =======================
+   SIDEBAR
+========================== */
+app-sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: #2f3542;
+  color: white;
+}
+
+/* =======================
+   MAIN CONTENT (topnav + content)
+========================== */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =======================
+   TOPNAV
+========================== */
+app-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+   PAGE CONTENT
+========================== */
+.page-content {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* =======================
+   MAIN WRAPPER
+========================== */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =======================
+   TOPBAR (title + search)
+========================== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+/* =======================
+   ROOM TABS
+========================== */
+.room-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.room-tab,
+.room-tabs div {
+  background-color: #dfe4ea;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.room-tabs div:hover {
+  background-color: #ced6e0;
+}
+
+/* =======================
+   CARD
+========================== */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+   TEMPERATURE CONTROL
+========================== */
+.temperature-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input[type="range"] {
+  width: 150px;
+}
+
+/* =======================
+   CHART
+========================== */
+.chart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: flex-end;
+  height: 140px;
+}
+
+.bar {
+  width: 14%;
+  background-color: #74b9ff;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s ease;
+}
+
+.bar.active {
+  background-color: #0984e3;
+}
+
+/* =======================
+   DEVICE LIST
+========================== */
+.devices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.device {
+  background-color: #dfe6e9;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* =======================
+   LIGHTS CONTROL
+========================== */
+.lights {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.slider {
+  width: 60%;
+}
+.layout-container {
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar mặc định 20% */
+.sidebar {
+  width: 20%;
+  min-width: 200px;
+  background-color: #2f3542;
+  color: white;
+  height: 100vh;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Khi collapsed thì sidebar ẩn */
+.layout-container.sidebar-collapsed .sidebar {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Main content chiếm phần còn lại */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+/* Topnav */
+app-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Page content scrollable */
+.page-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.layout-container {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar */
+app-sidebar {
+  width: 250px;
+  transition: width 0.3s;
+}
+
+.layout-container.sidebar-collapsed app-sidebar {
+  width: 80px; /* hoặc 60px tùy bạn */
+}
+
+/* Nội dung chính */
+.main-content {
+  flex: 1;
+  transition: margin-left 0.3s;
+  margin-left: 250px;
+}
+
+.layout-container.sidebar-collapsed .main-content {
+  margin-left: 80px; /* trùng với width sidebar khi collapsed */
+}
